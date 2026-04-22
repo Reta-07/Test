@@ -20,7 +20,7 @@
       --bg3: #111;
       --border: #1a1a1a;
       --text: #f0f0f0;
-      --muted: #555;
+      --muted: #c4c4c4;
     }
     body {
       background: var(--bg);
@@ -44,13 +44,32 @@
 
     /* TABS */
     .tabs { display: flex; margin: 24px 24px 0; }
-    .tab { flex: 1; padding: 14px 8px; background: var(--bg3); color: #444; border: none; cursor: pointer; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; transition: all 0.15s; border-bottom: 3px solid var(--border); }
+    .tab { flex: 1; padding: 14px 8px; background: var(--bg3); color: var(--muted); border: none; cursor: pointer; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; transition: all 0.15s; border-bottom: 3px solid var(--border); }
     .tab.active { color: #000; }
 
     /* DAY HEADER */
     .day-header { padding: 20px 24px 4px; }
+    .day-title-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
     .day-title { font-size: 22px; font-weight: 700; letter-spacing: 1px; }
     .day-warning { margin-top: 10px; padding: 8px 12px; background: rgba(255,179,0,0.06); border: 1px solid rgba(255,179,0,0.15); border-left: 2px solid var(--amber); font-family: 'Barlow', sans-serif; font-size: 12px; color: var(--amber); line-height: 1.5; }
+
+    /* RESET BUTTON */
+    .reset-btn {
+      padding: 6px 14px;
+      background: transparent;
+      border: 1px solid #2a2a2a;
+      color: var(--muted);
+      border-radius: 3px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.15s;
+      flex-shrink: 0;
+    }
+    .reset-btn:active { background: #1a1a1a; border-color: var(--muted); }
 
     /* PROGRESS */
     .progress-row { margin-top: 12px; display: flex; align-items: center; gap: 12px; }
@@ -61,81 +80,41 @@
     /* EXERCISES */
     .exercise-list { padding: 8px 24px 0; }
     .exercise { padding: 14px 0; border-bottom: 1px solid #141414; }
-
     .ex-top { display: flex; align-items: flex-start; gap: 14px; cursor: pointer; user-select: none; }
     .checkbox { width: 22px; height: 22px; border: 2px solid #333; background: transparent; border-radius: 3px; flex-shrink: 0; margin-top: 3px; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
     .done .checkbox { border-color: var(--accent); background: var(--accent); }
     .checkbox-check { color: #000; font-size: 13px; font-weight: 900; display: none; }
     .done .checkbox-check { display: block; }
-
     .ex-content { flex: 1; }
     .ex-name-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 5px; }
     .ex-name { font-size: 17px; font-weight: 700; letter-spacing: 0.5px; }
-    .done .ex-name { text-decoration: line-through; color: #333; }
-
+    .done .ex-name { text-decoration: line-through; color: #444; }
     .safety-badge { font-size: 9px; font-weight: 800; letter-spacing: 1.5px; padding: 2px 6px; border-radius: 2px; text-transform: uppercase; }
     .safety-safe { color: #00E5FF; background: rgba(0,229,255,0.08); border: 1px solid rgba(0,229,255,0.25); }
     .safety-care { color: #FFB300; background: rgba(255,179,0,0.08); border: 1px solid rgba(255,179,0,0.25); }
-
     .ex-tags { display: flex; gap: 8px; flex-wrap: wrap; }
     .tag { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; padding: 2px 8px; border-radius: 2px; text-transform: uppercase; }
-    .tag-muted { color: var(--muted); background: #161616; border: 1px solid #222; }
-    .ex-note { font-family: 'Barlow', sans-serif; font-size: 12px; color: #4a4a4a; margin-top: 5px; font-style: italic; line-height: 1.4; }
+    .ex-note { font-family: 'Barlow', sans-serif; font-size: 12px; color: var(--muted); margin-top: 5px; font-style: italic; line-height: 1.4; }
 
     /* WEIGHT TRACKER */
-    .weight-tracker {
-      margin-top: 10px;
-      margin-left: 36px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 12px;
-      background: #111;
-      border: 1px solid #1e1e1e;
-      border-radius: 4px;
-    }
-    .weight-tracker-label {
-      font-size: 10px;
-      letter-spacing: 2px;
-      color: var(--muted);
-      text-transform: uppercase;
-      flex-shrink: 0;
-    }
-    .weight-input-wrap { display: flex; align-items: center; gap: 6px; flex: 1; }
-    .weight-input {
-      background: #0a0a0a;
-      border: 1px solid #2a2a2a;
-      color: var(--text);
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 18px;
-      font-weight: 700;
-      width: 80px;
-      padding: 4px 8px;
-      border-radius: 3px;
-      text-align: center;
-      transition: border-color 0.15s;
-    }
+    .weight-tracker { margin-top: 10px; margin-left: 36px; display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #111; border: 1px solid #1e1e1e; border-radius: 4px; flex-wrap: wrap; }
+    .weight-tracker-label { font-size: 10px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; flex-shrink: 0; }
+    .weight-input-wrap { display: flex; align-items: center; gap: 6px; }
+    .weight-input { background: #0a0a0a; border: 1px solid #2a2a2a; color: var(--text); font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 700; width: 76px; padding: 4px 8px; border-radius: 3px; text-align: center; transition: border-color 0.15s; }
     .weight-input:focus { outline: none; border-color: var(--accent); }
     .weight-unit { font-size: 12px; color: var(--muted); }
-    .weight-save-btn {
-      padding: 5px 12px;
-      border: none;
-      border-radius: 3px;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 12px;
-      letter-spacing: 1px;
-      cursor: pointer;
-      transition: all 0.15s;
-      text-transform: uppercase;
-    }
+    .weight-save-btn { padding: 5px 12px; border: none; border-radius: 3px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 1px; cursor: pointer; transition: all 0.15s; text-transform: uppercase; }
+    .sync-indicator { font-size: 10px; letter-spacing: 1px; padding: 2px 6px; border-radius: 2px; font-weight: 700; }
+    .sync-ok { color: #00E5FF; background: rgba(0,229,255,0.1); }
+    .sync-err { color: #FFB300; background: rgba(255,179,0,0.1); }
+    .sync-ing { color: var(--muted); background: rgba(255,255,255,0.05); }
 
-    /* DELTA BADGE */
-    .delta { display: flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 700; }
+    /* DELTA */
+    .delta { display: flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 700; flex-wrap: wrap; }
     .delta-up { color: #00E5FF; }
     .delta-down { color: #FF4B6E; }
     .delta-same { color: var(--muted); }
-    .delta-date { font-size: 10px; color: #333; font-family: 'Barlow', sans-serif; margin-left: 2px; font-weight: 400; }
+    .delta-date { font-size: 10px; color: var(--muted); font-family: 'Barlow', sans-serif; margin-left: 2px; font-weight: 400; }
 
     /* FOOTER */
     .footer-notes { margin: 28px 24px 0; padding: 16px; background: var(--bg2); border: 1px solid var(--border); }
@@ -144,15 +123,18 @@
     .note-danger { color: var(--red); }
 
     /* TOAST */
-    .toast {
-      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px);
-      background: #1a1a1a; border: 1px solid #2a2a2a;
-      padding: 10px 20px; border-radius: 4px;
-      font-size: 13px; font-weight: 700; letter-spacing: 1px;
-      transition: transform 0.25s ease; z-index: 100;
-      white-space: nowrap;
-    }
+    .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px); background: #1a1a1a; border: 1px solid #2a2a2a; padding: 10px 20px; border-radius: 4px; font-size: 13px; font-weight: 700; letter-spacing: 1px; transition: transform 0.25s ease; z-index: 100; white-space: nowrap; max-width: 90vw; text-align: center; }
     .toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* CONFIRM MODAL */
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 200; align-items: center; justify-content: center; }
+    .modal-overlay.open { display: flex; }
+    .modal { background: #111; border: 1px solid #2a2a2a; padding: 24px; margin: 24px; border-radius: 6px; max-width: 320px; width: 100%; }
+    .modal-title { font-size: 18px; font-weight: 800; letter-spacing: 1px; margin-bottom: 8px; }
+    .modal-body { font-family: 'Barlow', sans-serif; font-size: 14px; color: var(--muted); line-height: 1.5; margin-bottom: 20px; }
+    .modal-btns { display: flex; gap: 10px; }
+    .modal-cancel { flex: 1; padding: 10px; background: transparent; border: 1px solid #2a2a2a; color: var(--muted); border-radius: 3px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; }
+    .modal-confirm { flex: 1; padding: 10px; border: none; border-radius: 3px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; }
   </style>
 </head>
 <body>
@@ -171,7 +153,10 @@
 <div class="tabs" id="tabs"></div>
 
 <div class="day-header">
-  <div class="day-title" id="dayTitle"></div>
+  <div class="day-title-row">
+    <div class="day-title" id="dayTitle"></div>
+    <button class="reset-btn" onclick="confirmReset()">↺ Resetear</button>
+  </div>
   <div class="day-warning" id="dayWarning"></div>
   <div class="progress-row">
     <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
@@ -190,9 +175,25 @@
   · Progresión: subí peso solo cuando completes todas las series al límite superior de reps</p>
 </div>
 
+<!-- Reset confirm modal -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-title">Resetear día</div>
+    <div class="modal-body">¿Destildar todos los ejercicios del día actual? Los pesos guardados no se tocan.</div>
+    <div class="modal-btns">
+      <button class="modal-cancel" onclick="closeModal()">Cancelar</button>
+      <button class="modal-confirm" id="modalConfirmBtn" onclick="doReset()">Resetear</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
+// ─── CONFIG ────────────────────────────────────────────────────────
+const SHEETS_URL = "https://script.google.com/macros/s/AKfycbyouRFhistqeR4f-LDv8rIgfEgZcvkyqwjwCzf84VbvQB63JN49r3Gcz6bPpQm2Kc0m5w/exec";
+
+// ─── DATA ──────────────────────────────────────────────────────────
 const DAYS = [
   {
     id:"A", label:"DÍA A", focus:"Espalda · Bíceps", color:"#00E5FF",
@@ -233,20 +234,70 @@ const DAYS = [
   }
 ];
 
-let activeDay = "A";
-const checked = {};
+// ─── STATE ─────────────────────────────────────────────────────────
+let activeDay = localStorage.getItem('activeDay') || "A";
 
-// ─── STORAGE HELPERS ───────────────────────────────────────────────
+// Load checks from localStorage
+function checksKey() { return `checks_${activeDay}`; }
+function loadChecks() {
+  try { return JSON.parse(localStorage.getItem(checksKey())) || {}; } catch { return {}; }
+}
+function saveChecks() {
+  localStorage.setItem(checksKey(), JSON.stringify(checked));
+}
+let checked = loadChecks();
+
+// ─── WEIGHT STORAGE ────────────────────────────────────────────────
 function storageKey(dayId, exIdx) { return `pw_${dayId}_${exIdx}`; }
-
 function getStored(dayId, exIdx) {
   try { return JSON.parse(localStorage.getItem(storageKey(dayId, exIdx))); } catch { return null; }
 }
-
 function saveWeight(dayId, exIdx, value) {
   const prev = getStored(dayId, exIdx);
-  const entry = { weight: parseFloat(value), date: new Date().toLocaleDateString('es-AR', {day:'2-digit',month:'2-digit'}), prev: prev ? prev.weight : null };
+  const entry = {
+    weight: parseFloat(value),
+    date: new Date().toLocaleDateString('es-AR', {day:'2-digit', month:'2-digit'}),
+    prev: prev ? prev.weight : null
+  };
   localStorage.setItem(storageKey(dayId, exIdx), JSON.stringify(entry));
+}
+
+// ─── GOOGLE SHEETS SYNC ────────────────────────────────────────────
+function syncToSheets(dayId, exIdx, weight, prev) {
+  const day = DAYS.find(d => d.id === dayId);
+  const ex = day.exercises[exIdx];
+  const delta = prev !== null ? (weight - prev) : null;
+  const payload = {
+    fecha: new Date().toLocaleDateString('es-AR', {day:'2-digit', month:'2-digit', year:'numeric'}),
+    dia: day.focus,
+    ejercicio: ex.name,
+    peso: weight,
+    anterior: prev !== null ? prev : '—',
+    delta: delta !== null ? (delta >= 0 ? `+${delta.toFixed(1)}` : delta.toFixed(1)) : '—'
+  };
+  const key = `${dayId}-${exIdx}`;
+  setSyncStatus(key, 'ing');
+  fetch(SHEETS_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+  .then(() => setSyncStatus(key, 'ok'))
+  .catch(() => setSyncStatus(key, 'err'));
+}
+
+function setSyncStatus(key, status) {
+  const el = document.getElementById(`sync-${key}`);
+  if (!el) return;
+  const map = {
+    ing: { cls: 'sync-ing', txt: '⟳ SYNC' },
+    ok:  { cls: 'sync-ok',  txt: '✓ SHEETS' },
+    err: { cls: 'sync-err', txt: '! SIN SYNC' }
+  };
+  const s = map[status];
+  el.className = `sync-indicator ${s.cls}`;
+  el.textContent = s.txt;
 }
 
 // ─── TOAST ─────────────────────────────────────────────────────────
@@ -256,7 +307,24 @@ function showToast(msg, color) {
   t.style.color = color || '#f0f0f0';
   t.style.borderColor = color ? color + '40' : '#2a2a2a';
   t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2000);
+  setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+// ─── MODAL ─────────────────────────────────────────────────────────
+function confirmReset() {
+  const day = DAYS.find(d => d.id === activeDay);
+  document.getElementById('modalConfirmBtn').style.background = day.color;
+  document.getElementById('modalConfirmBtn').style.color = '#000';
+  document.getElementById('modalOverlay').classList.add('open');
+}
+function closeModal() { document.getElementById('modalOverlay').classList.remove('open'); }
+function doReset() {
+  closeModal();
+  const day = DAYS.find(d => d.id === activeDay);
+  day.exercises.forEach((_, i) => { checked[`${activeDay}-${i}`] = false; });
+  saveChecks();
+  renderTabs(); renderDay();
+  showToast('Día reseteado ✓', day.color);
 }
 
 // ─── RENDER ────────────────────────────────────────────────────────
@@ -265,7 +333,7 @@ function getDay() { return DAYS.find(d => d.id === activeDay); }
 function renderTabs() {
   document.getElementById('tabs').innerHTML = DAYS.map(d => `
     <button class="tab ${d.id===activeDay?'active':''}"
-      style="${d.id===activeDay?`background:${d.color};border-bottom-color:${d.color}`:`border-bottom-color:#1a1a1a`}"
+      style="${d.id===activeDay ? `background:${d.color};border-bottom-color:${d.color}` : `border-bottom-color:#1a1a1a`}"
       onclick="switchDay('${d.id}')">
       ${d.label}
     </button>`).join('');
@@ -285,11 +353,13 @@ function renderDay() {
   const pct = total ? Math.round(done/total*100) : 0;
   document.getElementById('progressFill').style.cssText = `width:${pct}%;background:${ac}`;
   document.getElementById('progressLabel').innerHTML = `${done}/${total} <span style="color:${ac}">${pct}%</span>`;
-
   document.getElementById('footerNotes').style.borderLeft = `3px solid ${ac}`;
   document.getElementById('footerTitle').style.color = ac;
 
-  const safeMap = { safe:{label:'SEGURO',cls:'safety-safe'}, care:{label:'CON CUIDADO',cls:'safety-care'} };
+  const safeMap = {
+    safe: { label:'SEGURO', cls:'safety-safe' },
+    care: { label:'CON CUIDADO', cls:'safety-care' }
+  };
 
   document.getElementById('exerciseList').innerHTML = day.exercises.map((ex, i) => {
     const key = `${activeDay}-${i}`;
@@ -297,14 +367,13 @@ function renderDay() {
     const s = safeMap[ex.safe];
     const stored = getStored(activeDay, i);
 
-    // delta indicator
     let deltaHtml = '';
     if (stored) {
       const w = stored.weight;
       const p = stored.prev;
       let deltaClass = 'delta-same', deltaIcon = '—', deltaText = `${w} kg`;
-      if (p !== null && w > p) { deltaClass='delta-up'; deltaIcon='▲'; deltaText=`${w} kg <small>(+${(w-p).toFixed(1)})</small>`; }
-      else if (p !== null && w < p) { deltaClass='delta-down'; deltaIcon='▼'; deltaText=`${w} kg <small>(−${(p-w).toFixed(1)})</small>`; }
+      if (p !== null && w > p) { deltaClass='delta-up'; deltaIcon='▲'; deltaText=`${w} kg <small style="font-size:10px">(+${(w-p).toFixed(1)})</small>`; }
+      else if (p !== null && w < p) { deltaClass='delta-down'; deltaIcon='▼'; deltaText=`${w} kg <small style="font-size:10px">(−${(p-w).toFixed(1)})</small>`; }
       deltaHtml = `<span class="delta ${deltaClass}">${deltaIcon} ${deltaText} <span class="delta-date">${stored.date}</span></span>`;
     }
 
@@ -315,16 +384,15 @@ function renderDay() {
         <div class="ex-content">
           <div class="ex-name-row">
             <span class="ex-name">${ex.name}</span>
-            ${s?`<span class="safety-badge ${s.cls}">${s.label}</span>`:''}
+            ${s ? `<span class="safety-badge ${s.cls}">${s.label}</span>` : ''}
           </div>
           <div class="ex-tags">
             <span class="tag" style="color:${ac};background:${ac}15;border:1px solid ${ac}30">${ex.sets} series</span>
             <span class="tag" style="color:${ac};background:${ac}15;border:1px solid ${ac}30">${ex.reps} reps</span>
           </div>
-          ${ex.note?`<div class="ex-note">${ex.note}</div>`:''}
+          ${ex.note ? `<div class="ex-note">${ex.note}</div>` : ''}
         </div>
       </div>
-
       <div class="weight-tracker">
         <span class="weight-tracker-label">MAX</span>
         <div class="weight-input-wrap">
@@ -336,19 +404,18 @@ function renderDay() {
           />
           <span class="weight-unit">kg</span>
         </div>
-        <button class="weight-save-btn"
-          style="background:${ac};color:#000"
-          onclick="saveW('${activeDay}',${i})">
-          OK
-        </button>
-        <div id="delta-${key}">${deltaHtml}</div>
+        <button class="weight-save-btn" style="background:${ac};color:#000" onclick="saveW('${activeDay}',${i})">OK</button>
+        <span class="sync-indicator" id="sync-${key}"></span>
+        <div>${deltaHtml}</div>
       </div>
     </div>`;
   }).join('');
 }
 
+// ─── ACTIONS ───────────────────────────────────────────────────────
 function toggle(key) {
   checked[key] = !checked[key];
+  saveChecks();
   renderTabs(); renderDay();
 }
 
@@ -357,25 +424,31 @@ function saveW(dayId, exIdx) {
   const input = document.getElementById(`wi-${key}`);
   const val = parseFloat(input.value);
   if (isNaN(val) || val <= 0) { showToast('Ingresá un peso válido', '#FF4B6E'); return; }
+  const prev = getStored(dayId, exIdx);
   saveWeight(dayId, exIdx, val);
+  syncToSheets(dayId, exIdx, val, prev ? prev.weight : null);
   renderDay();
-  const day = DAYS.find(d=>d.id===dayId);
-  const stored = getStored(dayId, exIdx);
-  if (stored && stored.prev !== null) {
-    const diff = val - stored.prev;
-    if (diff > 0) showToast(`↑ +${diff.toFixed(1)} kg — seguís subiendo 💪`, day.color);
-    else if (diff < 0) showToast(`↓ ${diff.toFixed(1)} kg guardado`, '#FFB300');
-    else showToast('Peso guardado ✓', day.color);
+  const day = DAYS.find(d => d.id === dayId);
+  if (prev && prev.weight !== null) {
+    const diff = val - prev.weight;
+    if (diff > 0) showToast(`▲ +${diff.toFixed(1)} kg — seguís subiendo 💪`, day.color);
+    else if (diff < 0) showToast(`▼ ${Math.abs(diff).toFixed(1)} kg menos — guardado`, '#FFB300');
+    else showToast('Mismo peso — guardado ✓', day.color);
   } else {
     showToast('Peso guardado ✓', day.color);
   }
 }
 
-function switchDay(id) { activeDay = id; renderTabs(); renderDay(); }
+function switchDay(id) {
+  activeDay = id;
+  localStorage.setItem('activeDay', id);
+  checked = loadChecks();
+  renderTabs(); renderDay();
+}
 
+// ─── INIT ──────────────────────────────────────────────────────────
 renderTabs();
 renderDay();
 </script>
 </body>
 </html>
-
