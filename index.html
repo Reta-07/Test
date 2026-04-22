@@ -273,7 +273,7 @@ function syncToSheets(dayId, exIdx, weight, prev) {
     ejercicio: ex.name,
     peso: weight,
     anterior: prev !== null ? prev : '—',
-    delta: delta !== null ? (delta >= 0 ? `+${delta.toFixed(1)}` : delta.toFixed(1)) : '—'
+    delta: delta !== null ? (delta >= 0 ? `${delta.toFixed(1)}` : delta.toFixed(1)) : '—'
   };
   const key = `${dayId}-${exIdx}`;
   setSyncStatus(key, 'ing');
