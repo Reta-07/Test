@@ -20,7 +20,7 @@
       --bg3: #111;
       --border: #1a1a1a;
       --text: #f0f0f0;
-      --muted: #c4c4c4;
+      --muted: #555;
     }
     body {
       background: var(--bg);
@@ -44,7 +44,7 @@
 
     /* TABS */
     .tabs { display: flex; margin: 24px 24px 0; }
-    .tab { flex: 1; padding: 14px 8px; background: var(--bg3); color: #c4c4c4; border: none; cursor: pointer; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; transition: all 0.15s; border-bottom: 3px solid var(--border); }
+    .tab { flex: 1; padding: 14px 8px; background: var(--bg3); color: #444; border: none; cursor: pointer; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; transition: all 0.15s; border-bottom: 3px solid var(--border); }
     .tab.active { color: #000; }
 
     /* DAY HEADER */
@@ -80,7 +80,7 @@
     .ex-tags { display: flex; gap: 8px; flex-wrap: wrap; }
     .tag { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; padding: 2px 8px; border-radius: 2px; text-transform: uppercase; }
     .tag-muted { color: var(--muted); background: #161616; border: 1px solid #222; }
-    .ex-note { font-family: 'Barlow', sans-serif; font-size: 12px; color: #c4c4c4; margin-top: 5px; font-style: italic; line-height: 1.4; }
+    .ex-note { font-family: 'Barlow', sans-serif; font-size: 12px; color: #4a4a4a; margin-top: 5px; font-style: italic; line-height: 1.4; }
 
     /* WEIGHT TRACKER */
     .weight-tracker {
@@ -135,12 +135,12 @@
     .delta-up { color: #00E5FF; }
     .delta-down { color: #FF4B6E; }
     .delta-same { color: var(--muted); }
-    .delta-date { font-size: 10px; color: #c4c4c4; font-family: 'Barlow', sans-serif; margin-left: 2px; font-weight: 400; }
+    .delta-date { font-size: 10px; color: #333; font-family: 'Barlow', sans-serif; margin-left: 2px; font-weight: 400; }
 
     /* FOOTER */
     .footer-notes { margin: 28px 24px 0; padding: 16px; background: var(--bg2); border: 1px solid var(--border); }
     .footer-notes-title { font-size: 11px; letter-spacing: 3px; margin-bottom: 8px; text-transform: uppercase; }
-    .footer-notes p { font-family: 'Barlow', sans-serif; font-size: 13px; color: #c4c4c4; line-height: 1.8; }
+    .footer-notes p { font-family: 'Barlow', sans-serif; font-size: 13px; color: var(--muted); line-height: 1.8; }
     .note-danger { color: var(--red); }
 
     /* TOAST */
@@ -378,3 +378,4 @@ renderDay();
 </script>
 </body>
 </html>
+
